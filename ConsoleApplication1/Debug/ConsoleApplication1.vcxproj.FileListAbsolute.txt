@@ -1,0 +1,2 @@
+C:\Users\okaok\Desktop\atcoder\ConsoleApplication1\Debug\ConsoleApplication1.exe
+C:\Users\okaok\Desktop\atcoder\ConsoleApplication1\Debug\ConsoleApplication1.pdb
