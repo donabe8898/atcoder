@@ -24,6 +24,5 @@ int main (){
 
 /*
 	解説: https://blog.hamayanhamayan.com/entry/2021/06/19/233714
-	
 	map:  https://cpprefjp.github.io/reference/map/map.html
 */
