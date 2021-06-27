@@ -13,7 +13,7 @@ int main (){
    cout<<x<<endl;
 
    int y;
-   y = *a;
+   y = *a;    //aの指すアドレスの値を代入
    cout<<y<<endl;
 	return 0;
 }
