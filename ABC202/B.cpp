@@ -35,7 +35,14 @@ void Fill(A (&array)[N], const T &val){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-
-
+		string S;
+		cin>>S;
+		reverse(S.begin(),S.end());
+		for(auto &i:S){
+			if(i=='6') cout<<"9";
+			else if(i=='9') cout<<"6";
+			else cout<<i;
+		}
+		cout<<endl;
 		return 0;
 }
