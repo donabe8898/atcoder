@@ -43,6 +43,21 @@ int fh(int k){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    
+    ll N,K;
+    vector<pll> p;
+    cin>>N>>K;
+    rep(i,0,N) {
+      int temp;
+      cin>>temp;
+      p.push_back(pll(temp,i));//temp: 国民番号 i:index
+    }
+    ll t = K/N; //一人当たりのお菓子
+    K%=N;       //余ったお菓子
+    vector<ll> a(N,t); //要素数N,tで初期化
+    sort(all(p));//国民番号で並べ替え
+    rep(i,0,K){
+      a[p[i].second]++;
+    }
+    rep(i,0,N) cout<< a[i] <<endl;
 		return 0;
 }
