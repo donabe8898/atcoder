@@ -40,16 +40,10 @@ int fh(int k){
     }
     return sum;
 }
-int ff[10] = {1,2,6,24,120,720,5040,40320,362880,3628800};
-int fp[10] = {};
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    ll N,K;
-    cin>>N>>K;
-    vector<ll> a(N);
-    for(auto &x:a) cin>>x;
-    vector<ll> od(N);
-    
+
+
 		return 0;
 }
