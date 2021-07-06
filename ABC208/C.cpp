@@ -44,7 +44,7 @@ int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
     ll N,K;
-    vector<pll> p;
+    vector<pll> p;//pair <国民番号：i>
     cin>>N>>K;
     rep(i,0,N) {
       int temp;
@@ -53,7 +53,7 @@ int main (){
     }
     ll t = K/N; //一人当たりのお菓子
     K%=N;       //余ったお菓子
-    vector<ll> a(N,t); //要素数N,tで初期化
+    vector<ll> a(N,t); //要素数N,tで初期化。配るお菓子
     sort(all(p));//国民番号で並べ替え
     rep(i,0,K){
       a[p[i].second]++;
