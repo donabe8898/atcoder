@@ -3,7 +3,8 @@
 #define endl "\n"
 #define all(n) n.begin(),n.end()
 #define rall(n) n.rbegin(),n.rend()
-#define rep(i, s, n) for (int i = s; i < (int)(n); i++)
+#define rep(i,n) for(int i=0;i<(int)(n);i++)
+#define REP(i, s, n) for (int i = s; i < (int)(n); i++)
 #define floatset(n) fixed<<setprecision(n)
 #define rangeout(x,y,h,w) (x<0||y<0||h-1<x||w-1<y)
 using namespace std;
@@ -32,12 +33,29 @@ template<typename A, size_t N, typename T>
 void Fill(A (&array)[N], const T &val){
     fill( (T*)array, (T*)(array+N), val );
 }
+//階乗
+int fh(int k){
+    int sum = 1;
+    for (int i = 1; i <= k; ++i){
+        sum *= i;
+    }
+    return sum;
+}
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    int a,b,c;
-    cin>>a>>b>>c;
-    int  x = c%2==1&&a<0;
-   	cout<<x<<endl;
-	 	return 0;
+    ll A,B,C;
+    cin>>A>>B>>C;
+    bool ac = C%2!=0&&A<0;//負なら1
+    bool bc = C%2!=0&&B<0;
+    if(ac!=bc){
+      if(ac) cout<<"<"<<endl;
+      else cout<<">"<<endl;
+    }
+    else{
+      if(abs(A)==abs(B)) cout<<"="<<endl;
+      else if(abs(A)<abs(B))cout<<"<"<<endl;
+      else cout<<">"<<endl;
+    }
+		return 0;
 }

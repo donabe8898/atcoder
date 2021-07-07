@@ -3,7 +3,8 @@
 #define endl "\n"
 #define all(n) n.begin(),n.end()
 #define rall(n) n.rbegin(),n.rend()
-#define rep(i, s, n) for (int i = s; i < (int)(n); i++)
+#define rep(i,n) for(int i=0;i<(int)(n);i++)
+#define REP(i, s, n) for (int i = s; i < (int)(n); i++)
 #define floatset(n) fixed<<setprecision(n)
 #define rangeout(x,y,h,w) (x<0||y<0||h-1<x||w-1<y)
 using namespace std;
@@ -43,6 +44,6 @@ int fh(int k){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    
+
 		return 0;
 }
