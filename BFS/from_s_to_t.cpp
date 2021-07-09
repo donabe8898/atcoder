@@ -34,17 +34,37 @@ template<typename A, size_t N, typename T>
 void Fill(A (&array)[N], const T &val){
     fill( (T*)array, (T*)(array+N), val );
 }
-//階乗
-int fh(int k){
-    int sum = 1;
-    for (int i = 1; i <= k; ++i){
-        sum *= i;
-    }
-    return sum;
-}
+/*
+	グラフ GG の二頂点s,t∈V が与えられたとき、s から辺をたどって
+	tt に到達できるかどうかを判定する問題を考えてます。
+	これは単純に、s を始点とした BFS を実施してあげればよいです。BFS 実施後において
+	dist 配列を見ることで、各頂点が探索されたかどうかを判定することができます。
+	dist[t] == -1 であれば t へ辿り着けないことを表し、
+	dist[t] != -1 であれば t へ辿り着けることがわかります。
+*/
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-
+		int N,M,s,t; cin>>N>>M>>s>>t;
+		Graph2 G(N);	//2次元グラフ
+		//グラフ入力
+		for(int i=0;i<M;i++){
+			int a,b; cin>>a>>b;
+			G[a].push_back(b);
+		}
+		vector<int> dist(N,-1);
+		queue<int> Q;
+		dist[s] = 0, Q.push(s);
+		while(!Q.empty()){
+			int v=Q.front();Q.pop();
+			for(auto nv:G[v]){
+				if(dist[nv]==1){
+					dist[nv]=dist[v]+1;
+					Q.push(nv);
+				}
+			}
+		}
+		if(dist[t]!=-1) cout<<"Yes"<<endl;
+		else cout<<"No"<<endl;
 		return 0;
 }

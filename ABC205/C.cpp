@@ -44,18 +44,25 @@ int fh(int k){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    ll A,B,C;
-    cin>>A>>B>>C;
-    bool ac = C%2!=0&&A<0;//負なら1
-    bool bc = C%2!=0&&B<0;
-    if(ac!=bc){
-      if(ac) cout<<"<"<<endl;
-      else cout<<">"<<endl;
-    }
-    else{
-      if(abs(A)==abs(B)) cout<<"="<<endl;
-      else if(abs(A)<abs(B))cout<<"<"<<endl;
-      else cout<<">"<<endl;
-    }
+		ll A,B,C;
+		cin>>A>>B>>C;
+		bool Ad = C%2!=0&&A<0;
+		bool Bd = C%2!=0&&B<0;
+		if(Ad!=Bd){
+			if(Ad)
+				cout<<"<"<<endl;
+			else
+				cout<<">"<<endl;
+		}
+		else{
+			if(abs(A)==abs(B)){
+				cout<<"="<<endl;
+			}
+			else if(abs(A)<abs(B)){
+				cout<<"<"<<endl;
+			}else{
+				cout<<">"<<endl;
+			}
+		}
 		return 0;
 }
