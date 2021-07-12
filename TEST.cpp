@@ -35,9 +35,9 @@ void Fill(A (&array)[N], const T &val){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    int a,b,c;
-    cin>>a>>b>>c;
-    int x = c%2==1&&a<0;
-   	cout<<x<<endl;
+
+    int i=0;
+    cout<<i+1<<endl;
+    cout<<i<<endl;
 	 	return 0;
 }
