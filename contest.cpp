@@ -45,33 +45,6 @@ int fh(int k){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-    //頂点Nと辺の数M
-  	ll N,Q; cin>>N>>Q;
-  	Graph2 G(N);
-  	//グラフ入力
-  	rep(i,N-1){
-  		int a,b; cin>>a>>b;
-  		G[a].push_back(b);
-  		//無向グラフの場合には以下を追加
-  		G[b].push_back(a);
-  	}
-  	//全頂点を未訪問に設定
-  	vector<int> dist(N,-1);	//dist[v]はスタートからvまでのステップが格納される。
-  	queue<int> QQ;				//キュー
 
-  	dist[0]=0;//この場合、頂点を0としている
-  	QQ.push(0);//頂点0 を訪問予定にする
-
-  	//BFS開始（キューが空になるまで実行）
-  	while(!QQ.empty()){
-  		int v = QQ.front();//キューから先頭頂点を取り出す
-  		QQ.pop();
-  		//vから辿れる全ノードを探索
-  		for(int gv:G[v]){
-  			if(dist[gv] != 1) continue; 	// 訪問済みなら飛ばす
-  			dist[gv] = dist[gv]+1;			//未訪問なら更新&キューに追加
-  			QQ.push(gv);
-  		}
-  	}
 		return 0;
 }
