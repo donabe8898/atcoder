@@ -20,12 +20,40 @@ using Dp = vector<vector<ll>>;
 	・sortからのlower_bound
 
 ===========================================*/
-int num[4],v=0;
-string s;
-void dfs(int num[],int v,string s){
-    
+int num[4],v=0,sum;
+char s[4];
+string ans;
+void dfs(int num[],int v,int sum,char s[]){
+    if(v==4){
+		if(sum==7){
+			ans=s;
+			return ;
+		}
+		return ;
+	}
+	rep(i,0,2){
+		if(!i){
+			s[v-1]='+';
+			dfs(num,v+1,sum+num[v],s);
+		}
+		else{
+			s[v-1]='-';
+			dfs(num,v+1,sum-num[v],s);
+		}
+	}
+	return;
 }
 signed main(){
-    
+	string S;
+	cin>>S;
+	rep(i,0,4){
+		num[i]=S[i]-'0';
+	}
+	dfs(num,1,num[0],s);
+	rep(i,0,4){
+		cout<<num[i];
+		if(i!=3)cout<<ans[i];
+	}
+	cout<<"=7"<<endl;
 	return 0;
 }
