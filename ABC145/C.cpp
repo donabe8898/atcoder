@@ -22,24 +22,26 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
 
 signed main(){
-	int n;cin>>n;
-    vector<vector<int>> a(n,vector<int>(3));
-    rep(i,0,n)rep(j,0,3)cin>>a[i][j];
-    vector<vector<int>> dp(n,vector<int>(3));
-    rep(i,0,3){
-        dp[0][i]=a[0][i];
+    int n;cin>>n;
+    int pm=1;
+    vector<int> a(n);
+    rep(i,0,n){
+        a[i]=i;
+        if(i)pm*=i;
     }
-    rep(i,1,n){
-        dp[i][0]=a[i][0]+max(dp[i-1][1],dp[i-1][2]);
-        dp[i][1]=a[i][1]+max(dp[i-1][0],dp[i-1][2]);
-        dp[i][2]=a[i][2]+max(dp[i-1][0],dp[i-1][1]);
+    pm*=n;
+    vector<int>x(n),y(n);
+    rep(i,0,n){
+        cin>>x[i]>>y[i];
     }
-    int ans = -1;
-    rep(i,0,3){
-        if(dp[n-1][i]>ans){
-            ans=dp[n-1][i];
+    ld ans=0;
+    do{
+        rep(i,0,n-1){
+            ld dx=x[a[i]]-x[a[i+1]];
+            ld dy=y[a[i]]-y[a[i+1]];
+            ans +=sqrt(dx*dx+dy*dy);
         }
-    }
-    cout<<ans<<endl;
+    }while(next_permutation(a.begin(),a.end()));
+    cout<<fixed<<setprecision(10)<<ans/pm<<endl;
 	return 0;
 }
