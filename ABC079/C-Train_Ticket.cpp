@@ -20,21 +20,12 @@ using Dp = vector<vector<ll>>;
 	・sortからのlower_bound
 
 ===========================================*/
-
+int num[4],v=0;
+string s;
+void dfs(int num[],int v,string s){
+    
+}
 signed main(){
-	int n,w;
-    ll ans=0;
-    cin>>n>>w;
-    vector<int> weight(n),v(n);
-    rep(i,0,n){
-        cin>>weight[i]>>v[i];
-    }
-    vector<vector<long long>> dp(101,vector<ll>(201010));
-    rep(i,0,n)rep(j,0,w){
-        chmax(dp[i+1][j],dp[i][j]);
-        chmax(dp[i+1][j+weight[i]],dp[i][j]+v[i]);
-    }
-    rep(j,0,w+1)chmax(ans,dp[n][j]);
-    cout<<ans<<endl;
+    
 	return 0;
 }
