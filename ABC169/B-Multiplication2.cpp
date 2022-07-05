@@ -14,7 +14,7 @@ template<class T>bool chmax(T& a, const T& b) { if (a < b) { a = b; return 1; } 
 template<class T>bool chmin(T& a, const T& b) { if (b < a) { a = b; return 1; } return 0; }
 using ll = long long;
 using ld = long double;
-using Graph = vector<vector<int>>;
+using Glaph = vector<vector<int>>;
 using Dp = vector<vector<ll>>;
 /*memo[]===================================
    cout<<fixed<<setprecision(10)<<endl;
@@ -23,6 +23,26 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
 
 signed main(){
-
+	ll n;
+	cin>>n;
+	ll a[100010],p=1,s=pow(10,18);
+	rep(i,0,n){
+		cin>>a[i];
+		if(!a[i]){
+			cout<<0<<endl;
+			return 0;
+		}
+	}
+	rep(i,0,n){
+		if(infl / p < a[i]){
+			p = infl;
+		}
+		else {
+			p = min(infl,p*a[i]);
+		}
+	}
+	if(p>s)cout<<-1<<endl;
+	else cout<<p<<endl;
+	
 	return 0;
 }

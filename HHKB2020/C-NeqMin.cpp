@@ -23,6 +23,19 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
 
 signed main(){
+    int n;cin>>n;
+    int p[200020];
+    rep(i,0,n)cin>>p[i];
+
+    set<int> st;
+    int mn=0;
+    rep(i,0,n){
+        st.insert(p[i]);
+        while(st.count(mn)){
+            mn++;
+        }
+        cout<<mn<<endl;
+    }
 
 	return 0;
 }

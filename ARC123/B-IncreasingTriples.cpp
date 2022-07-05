@@ -23,6 +23,17 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
 
 signed main(){
+    int n;cin>>n;
+    int a[10010]={-1};
+    int b[10010]={-1};
+    int c[10010]={-1};
+    rep(i,0,n)cin>>a[i];
+    rep(i,0,n)cin>>b[i];
+    rep(i,0,n)cin>>c[i];
 
+    int bi=0,ci=0;    
+    rep(i,0,n){
+        
+    }
 	return 0;
 }
