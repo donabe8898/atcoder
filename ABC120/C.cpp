@@ -23,8 +23,25 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
  
 signed main(){
-	ll n;
-	cin>>n;
-	cout<<(n-1)*n/2<<endl;
+	ll n,k;
+	cin>>n>>k;
+	vector<ll> a(n);
+	rep(i,0,n)cin>>a[i];
+	map<ll,ll> mp;
+	ll mx=-1,kind=0;
+	rep(i,0,k){
+		if(mp[a[i]]==0)
+			++kind;
+		mp[a[i]]++;
+		chmax(mx,kind);
+	}
+	rep(i,k,n){
+		if(mp[a[i]]==0)++kind;
+		mp[a[i]]++;
+		if(mp[a[i-k]]==1)--kind;
+		mp[a[i-k]]--;
+		chmax(mx,kind);	
+	} 
+	cout<<mx<<endl;
 	return 0;
 }
