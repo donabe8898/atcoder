@@ -24,28 +24,26 @@ using Dp = vector<vector<ll>>;
 ===========================================*/
  
 signed main(){
-	int n;
-	cin>>n;
-	vector<int>a(n),b(n),c(n);
-	rep(i,0,n)cin>>a[i];
-	rep(i,0,n)cin>>b[i];
-	rep(i,0,n)cin>>c[i];
-	sort(all(a));
-	sort(all(b));
-	sort(all(c));
-	int bx=0,cx=0;
-	int ans=0;
-	rep(i,0,n){
-		chmax(bx,i);chmax(cx,i);
-		while(bx < n && a[i] >= b[bx])bx++;
-		while(bx < n && cx < n && b[bx] >= c[cx])cx++;
-		if(bx < n && cx < n){
-			++ans;
-			bx++;
-			cx++;
-		}
-	}
-	cout<<ans<<endl;
-
+    ll n,k;
+    cin>>n>>k;
+    vector<vector<ll>> T(n,vector<ll>(n));
+    vector<int> r(n-1);
+    rep(i,0,n)rep(j,0,n)cin>>T[i][j];
+    
+    rep(i,1,n){
+        r[i-1]=i;
+    }
+    int ans=0;
+    do{
+        ll sum = 0;
+        sum+=T[0][r[0]];
+        rep(i,0,n-1-1){
+            sum+=T[r[i]][r[i+1]];
+        }
+        sum+=T[r[n-1-1]][0];
+        if(sum==k)ans++;
+    }while(next_permutation(all(r)));
+    cout<<ans<<endl;
+    
 	return 0;
 }

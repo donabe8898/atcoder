@@ -25,27 +25,26 @@ using Dp = vector<vector<ll>>;
  
 signed main(){
 	int n;
-	cin>>n;
-	vector<int>a(n),b(n),c(n);
-	rep(i,0,n)cin>>a[i];
-	rep(i,0,n)cin>>b[i];
-	rep(i,0,n)cin>>c[i];
-	sort(all(a));
-	sort(all(b));
-	sort(all(c));
-	int bx=0,cx=0;
-	int ans=0;
-	rep(i,0,n){
-		chmax(bx,i);chmax(cx,i);
-		while(bx < n && a[i] >= b[bx])bx++;
-		while(bx < n && cx < n && b[bx] >= c[cx])cx++;
-		if(bx < n && cx < n){
-			++ans;
-			bx++;
-			cx++;
-		}
-	}
-	cout<<ans<<endl;
-
+    cin>>n;
+    string s;
+    cin>>s;
+    int mx=-1;
+    rep(i,0,n){
+        bool b=false;
+        set<char> t,u;
+        int cnt=0;
+        rep(j,0,n){
+            if(j<i){
+                t.insert(s[j]);
+            }else{
+                u.insert(s[j]);
+            }
+        }
+        for(auto i:t){
+            if(u.count(i))cnt++;
+        }
+        chmax(mx,cnt);
+    }
+    cout<<mx<<endl;
 	return 0;
 }

@@ -45,6 +45,8 @@ int fh(int k){
 int main (){
 		cin.tie(0);
 		ios_base::sync_with_stdio(false);
-
+        string s = "abcd";
+        s.insert(s.begin()+1,'M');
+        cout<<s<<endl;
 		return 0;
 }
