@@ -15,7 +15,7 @@ using ll = long long;
 using ld = long double;
 using Glaph = vector<vector<int>>;
 using Dp = vector<vector<ll>>;
-/*memo[]===================================
+/*memo[]===================================s
    cout<<fixed<<setprecision(10)<<endl;
 	・sortからのlower_bound
 
