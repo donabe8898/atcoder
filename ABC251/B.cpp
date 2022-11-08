@@ -34,4 +34,33 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-int main() { return 0; }
+int main() {
+  int N, W;
+  cin >> N >> W;
+  vector<int> A(N);
+  rep(i, 0, N) cin >> A[i];
+  set<int> st;
+  rep(i, 0, N) {
+    if (A[i] <= W) {
+      st.insert(A[i]);
+    }
+  }
+  rep(i, 0, N) {
+    rep(j, i + 1, N) {
+      if (A[i] + A[j] <= W) {
+        st.insert(A[i] + A[j]);
+      }
+    }
+  }
+  rep(i, 0, N) {
+    rep(j, i + 1, N) {
+      rep(k, j + 1, N) {
+        if (A[i] + A[j] + A[k] <= W) {
+          st.insert(A[i] + A[j] + A[k]);
+        }
+      }
+    }
+  }
+  cout << st.size() << endl;
+  return 0;
+}
