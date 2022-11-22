@@ -40,4 +40,31 @@ using Dp = vector<vector<ll>>;
  * 削る
  */
 
-int main() { return 0; }
+int main() {
+  ll n, k, x;
+  cin >> n >> k >> x;
+  vector<ll> a(n);
+  ll sum = 0;
+  rep(i, 0, n) {
+    cin >> a[i];
+    sum += a[i];
+  }
+  ll ksum = 0;
+  ll mod_sum = 0;
+  rep(i, 0, n) {
+    ksum += a[i] / x;
+    a[i] %= x;
+    mod_sum += a[i] % x;
+  }
+  if (ksum >= k) {
+    cout << sum - k * x << endl;
+    return 0;
+  }
+
+  k -= ksum;
+  sort(a.begin(), a.end(), greater<>());
+  rep(i, 0, min(k, n)) { mod_sum -= a[i]; }
+  cout << mod_sum << endl;
+
+  return 0;
+}
