@@ -35,45 +35,4 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-class UnionFind {
-public:
-  vector<int> Parent;
-  UnionFind(int N) { Parent = vector<int>(N, -1); }
-
-  int root(int A) {
-    if (Parent[A] < 0) {
-      return A;
-    }
-    return Parent[A] = root(Parent[A]);
-  }
-  // 自分のいるグループの頂点数を調べる
-  int size(int A) {
-    return -Parent[root(A)]; // 親をとってきたい]
-  }
-
-  // AとBをくっ付ける
-  bool connect(int A, int B) {
-    // AとBを直接つなぐのではなく、root(A)にroot(B)をくっつける
-    A = root(A);
-    B = root(B);
-    if (A == B) {
-      // すでにくっついてるからくっ付けない
-      return false;
-    }
-
-    // 大きい方(A)に小さいほう(B)をくっ付ける
-    // 大小が逆だったらひっくり返す
-    if (size(A) < size(B)) {
-      swap(A, B);
-    }
-
-    // Aのサイズを更新する
-    Parent[A] += Parent[B];
-    // Bの親をAに変更する
-    Parent[B] = A;
-
-    return true;
-  }
-};
-
 int main() { return 0; }
