@@ -1,7 +1,5 @@
-// ABC246-C
 #include <bits/stdc++.h>
-#include <cstdint>
-#define _GLIBCXX_DEBUG
+
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define rrep(i, a, b) for (int i = a; i >= b; i--)
 #define fore(i, a) for (auto &i : a)
@@ -19,6 +17,7 @@ template <class T> bool chmax(T &a, const T &b) {
   }
   return 0;
 }
+
 template <class T> bool chmin(T &a, const T &b) {
   if (b < a) {
     a = b;
@@ -36,37 +35,24 @@ using Dp = vector<vector<ll>>;
  */
 
 int main() {
-  ll n;
-  cin >> n;
-  vector<ll> a(n);
-  for (ll i = 0; i < n; i++) {
-    cin >> a[i];
+  int N, M;
+  cin >> N >> M;
+  vector<set<int>> Ad(N + 1);
+  for (int i = 0; i < M; i++) {
+    int A, B;
+    cin >> A >> B;
+    Ad[A].insert(B);
+    Ad[B].insert(A);
   }
-  ll m;
-  cin >> m;
-  vector<ll> b(m);
-  for (ll i = 0; i < m; i++) {
-    cin >> b[i];
-  }
-  ll x;
-  cin >> x;
-  vector<ll> dp(x + 1);
-  vector<bool> mochi(x + 1, false);
-  for (auto B : b) {
-    mochi[B] = true;
-  }
-  dp[0] = true;
-  for (ll i = 1; i <= x; i++) {
-    if (mochi[i]) {
-      dp[i] = false;
-    } else {
-      for (auto A : a) {
-        if (i >= A) {
-          dp[i] = dp[i] || dp[i - A];
-        }
+  for (int i = 1; i <= N; i++) {
+    int set_size = Ad[i].size();
+    cout << Ad[i].size() << " ";
+    if (set_size) {
+      for (auto p : Ad[i]) {
+        cout << p << " ";
       }
     }
+    cout << endl;
   }
-  cout << (dp[x] ? "Yes" : "No") << endl;
   return 0;
 }

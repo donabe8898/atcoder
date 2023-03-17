@@ -1,6 +1,6 @@
 // ABC246-C
-#include <bits/stdc++.h>
-#include <cstdint>
+#include <iostream>
+#include<vector>
 #define _GLIBCXX_DEBUG
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define rrep(i, a, b) for (int i = a; i >= b; i--)
