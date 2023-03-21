@@ -34,4 +34,28 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-int main() { return 0; }
+int main() {
+  int N;
+  string S;
+  cin >> N;
+  cin >> S;
+  if (N % 2 != 0) {
+    cout << -1 << endl;
+    return 0;
+  }
+  string LS, RS;
+  for (int i = 0; i < N / 2; i++) {
+    LS.push_back(S[i]);
+  }
+  for (int j = N / 2; j < N; j++) {
+    RS.push_back(S[j]);
+  }
+  int ans = 0;
+  for (int i = 0; i < N / 2; i++) {
+    if (LS[i] != RS[i]) {
+      ans++;
+    }
+  }
+  cout << ans << endl;
+  return 0;
+}
