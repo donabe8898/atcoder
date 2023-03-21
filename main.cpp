@@ -34,19 +34,4 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-int main() {
-  string S;
-  cin >> S;
-
-  ll L = S.size() - 1;
-  ll Def = L;
-  ll ans = 0;
-  for (ll i = L; i >= 0; --i) {
-    if (S[i] == 'B') {
-      ans += Def - i;
-      Def--;
-    }
-  }
-  cout << ans << endl;
-  return 0;
-}
+int main() { return 0; }

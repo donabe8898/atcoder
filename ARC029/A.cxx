@@ -4,6 +4,7 @@
 #define rrep(i, a, b) for (int i = a; i >= b; i--)
 #define fore(i, a) for (auto &i : a)
 #define all(x) (x).begin(), (x).end()
+
 const int INF = 1e9;
 const long long infl = 1LL << 60;
 const int mod = 998244353;
@@ -35,18 +36,17 @@ using Dp = vector<vector<ll>>;
  */
 
 int main() {
-  string S;
-  cin >> S;
-
-  ll L = S.size() - 1;
-  ll Def = L;
-  ll ans = 0;
-  for (ll i = L; i >= 0; --i) {
-    if (S[i] == 'B') {
-      ans += Def - i;
-      Def--;
+  int N, X;
+  cin >> N >> X;
+  vector<int> P(N);
+  for (int i = 0; i < N; i++) {
+    cin >> P.at(i);
+  }
+  for (int i = 0; i < N; i++) {
+    if (P[i] == X) {
+      cout << i + 1 << endl;
+      return 0;
     }
   }
-  cout << ans << endl;
   return 0;
 }

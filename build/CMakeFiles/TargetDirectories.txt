@@ -1,0 +1,3 @@
+/home/yugo/Documents/kyopro/atcoder/build/CMakeFiles/main.dir
+/home/yugo/Documents/kyopro/atcoder/build/CMakeFiles/edit_cache.dir
+/home/yugo/Documents/kyopro/atcoder/build/CMakeFiles/rebuild_cache.dir
