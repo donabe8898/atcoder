@@ -34,42 +34,4 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-int main() {
-  int N;
-  cin >> N;
-  vector<int> P(N), Q(N), AR(N);
-  for (int i = 0; i < N; i++)
-    cin >> P.at(i);
-  for (int i = 0; i < N; i++) {
-    cin >> Q.at(i);
-    AR[i] = i + 1;
-  }
-  vector<vector<int>> A;
-  do {
-    A.push_back(AR);
-  } while (next_permutation(AR.begin(), AR.end()));
-
-  int ia = 0, ib = 0;
-  int index = 1;
-
-  for (auto a : A) {
-    int p = 0, q = 0;
-    for (int i = 0; i < N; i++) {
-      if (a[i] == P[i]) {
-        p++;
-      }
-      if (a[i] == Q[i]) {
-        q++;
-      }
-    }
-    if (p == N) {
-      ia = index;
-    }
-    if (q == N) {
-      ib = index;
-    }
-    index++;
-  }
-  cout << abs(ia - ib) << endl;
-  return 0;
-}
+int main() { return 0; }
