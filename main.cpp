@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <limits>
 
 #define rep(i, a, b) for (int i = a; i < b; ++i)
 #define rrep(i, a, b) for (int i = a; i >= b; i--)
@@ -34,4 +35,14 @@ using Dp = vector<vector<ll>>;
  *      ・sortからのlower_bound
  */
 
-int main() { return 0; }
+int main() {
+  string S;
+  cin >> S;
+  int length = S.size();
+
+  for (int i = 0; i < length / 2; i++) {
+    swap(S[2 * i], S[2 * i + 1]);
+  }
+  cout << S << endl;
+  return 0;
+}
